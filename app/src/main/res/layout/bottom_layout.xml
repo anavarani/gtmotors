@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ContainerViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/bottom_button_container_elevation"
+    tools:showIn="@layout/search_fragment">
+
+    <View
+        style="@style/SeparatorStyle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <Button
+        android:id="@+id/search_button"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/bottom_button_container_margin"
+        android:text="@string/placeholder_search"
+        android:textSize="18sp" />
+
+</FrameLayout>
