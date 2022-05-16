@@ -4,6 +4,8 @@ def libVersions = [
                 v7              : '1.3.0',
                 material        : '1.4.0',
                 constraintLayout: '2.0.4',
+                navigation      : '2.4.2',
+                fragment        : '1.4.1',
 
                 test            : [
                         junit   : '1.1.3',
@@ -20,6 +22,8 @@ ext {
                     v7              : "androidx.appcompat:appcompat:$libVersions.support.v7",
                     design          : "com.google.android.material:material:$libVersions.support.material",
                     constraintLayout: "androidx.constraintlayout:constraintlayout:$libVersions.support.constraintLayout",
+                    navigation      : "androidx.navigation:navigation-fragment:$libVersions.support.navigation",
+                    fragment        : "androidx.fragment:fragment:$libVersions.support.fragment",
 
                     test            : [
                             junit   : "androidx.test.ext:junit:$libVersions.support.test.junit",

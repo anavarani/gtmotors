@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">gtmotors</string>
+    <string name="placeholder_filter">Filter</string>
+    <string name="placeholder_results">Results</string>
+    <string name="placeholder_make_model">make / model</string>
+    <string name="placeholder_year">year</string>
+    <string name="placeholder_search">search</string>
 </resources>

@@ -1,6 +1,6 @@
 # The application
 
-The application is be based on the existing functionality of the Motors.co.uk mobile app.
+The application should be based on the existing functionality of the Motors.co.uk mobile app.
 For scope of this assignment, we would like you to focus on:
 
 1. The search screen

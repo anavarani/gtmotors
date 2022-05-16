@@ -37,6 +37,9 @@ dependencies {
     implementation libraries.support.v7
     implementation libraries.support.design
     implementation libraries.support.constraintLayout
+    implementation libraries.support.navigation
+    implementation libraries.support.fragment
+
     testImplementation libraries.junit
     androidTestImplementation libraries.support.test.junit
     androidTestImplementation libraries.support.test.espresso
