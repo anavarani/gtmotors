@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.varani.gtmotors.R
+import com.varani.gtmotors.ui.searchfilter.Filter
 
 class SearchFragment : Fragment() {
 
@@ -36,13 +37,15 @@ class SearchFragment : Fragment() {
         searchButton = view.findViewById(R.id.search_button)
 
         carMakeModelButton.setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_searchFilterFragment)
+            val action = SearchFragmentDirections.goToFilterFragment(Filter.MAKE_MODEL)
+            findNavController().navigate(action)
         }
         carYearButton.setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_searchFilterFragment)
+            val action = SearchFragmentDirections.goToFilterFragment(Filter.YEAR)
+            findNavController().navigate(action)
         }
         searchButton.setOnClickListener {
-            findNavController().navigate(R.id.action_search_fragment_to_searchResultsFragment)
+            findNavController().navigate(R.id.goToSearchResultsFragment)
         }
     }
 

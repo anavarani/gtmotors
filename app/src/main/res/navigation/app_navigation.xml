@@ -11,10 +11,10 @@
         android:label="SearchFragment"
         tools:layout="@layout/search_fragment">
         <action
-            android:id="@+id/action_searchFragment_to_searchFilterFragment"
+            android:id="@+id/goToFilterFragment"
             app:destination="@id/search_filter_dest" />
         <action
-            android:id="@+id/action_search_fragment_to_searchResultsFragment"
+            android:id="@+id/goToSearchResultsFragment"
             app:destination="@id/search_results_dest" />
     </fragment>
 
@@ -22,7 +22,12 @@
         android:id="@+id/search_filter_dest"
         android:name="com.varani.gtmotors.ui.searchfilter.SearchFilterFragment"
         android:label="SearchFilterFragment"
-        tools:layout="@layout/search_filter_bottom_sheet" />
+        tools:layout="@layout/search_filter_bottom_sheet">
+
+        <argument
+            android:name="filter"
+            app:argType="com.varani.gtmotors.ui.searchfilter.Filter" />
+    </dialog>
 
     <fragment
         android:id="@+id/search_results_dest"
