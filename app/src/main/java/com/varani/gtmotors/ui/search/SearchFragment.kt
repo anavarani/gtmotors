@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -11,6 +12,11 @@ import androidx.navigation.fragment.findNavController
 import com.varani.gtmotors.R
 
 class SearchFragment : Fragment() {
+
+    private lateinit var carMakeModelButton: TextView
+    private lateinit var carYearButton: TextView
+    private lateinit var searchButton: Button
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,18 +27,20 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindViews(view)
+    }
 
-        val carMakeModelButton = view.findViewById<TextView>(R.id.car_make_model_button)
+    private fun bindViews(view: View) {
+        carMakeModelButton = view.findViewById(R.id.car_make_model_button)
+        carYearButton = view.findViewById(R.id.car_year_button)
+        searchButton = view.findViewById(R.id.search_button)
+
         carMakeModelButton.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_searchFilterFragment)
         }
-
-        val carAgeButton = view.findViewById<TextView>(R.id.car_year_button)
-        carAgeButton.setOnClickListener {
+        carYearButton.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_searchFilterFragment)
         }
-
-        val searchButton = view.findViewById<TextView>(R.id.search_button)
         searchButton.setOnClickListener {
             findNavController().navigate(R.id.action_search_fragment_to_searchResultsFragment)
         }
