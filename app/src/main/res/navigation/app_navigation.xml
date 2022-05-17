@@ -21,6 +21,7 @@
     <dialog
         android:id="@+id/search_filter_dest"
         android:name="com.varani.gtmotors.ui.searchfilter.SearchFilterFragment"
+        android:label="SearchFilterFragment"
         tools:layout="@layout/search_filter_bottom_sheet">
 
         <argument
