@@ -40,6 +40,10 @@ dependencies {
     implementation libraries.support.constraintLayout
     implementation libraries.support.navigation
     implementation libraries.support.fragment
+    implementation libraries.retrofit
+    implementation libraries.converter
+    implementation libraries.okhttp3
+    implementation libraries.logging
 
     testImplementation libraries.junit
     androidTestImplementation libraries.support.test.junit
