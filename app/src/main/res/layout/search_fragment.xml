@@ -17,6 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/car_make_model_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_check_circle"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/car_make_model_button"
+        app:layout_constraintTop_toTopOf="@id/car_make_model_button" />
+
     <TextView
         android:id="@+id/car_year_button"
         android:layout_width="wrap_content"
@@ -28,6 +37,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/car_make_model_button"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/car_year_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_check_circle"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/car_year_button"
+        app:layout_constraintTop_toTopOf="@id/car_year_button" />
 
     <include
         android:id="@+id/bottom_layout"

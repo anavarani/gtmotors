@@ -1,5 +1,5 @@
 def libVersions = [
-        support : [
+        support  : [
                 coreKtx           : '1.7.0',
                 v7                : '1.3.0',
                 material          : '1.4.0',
@@ -12,9 +12,11 @@ def libVersions = [
                         espresso: '3.4.0'
                 ]
         ],
-        junit   : '4.13.2',
-        retrofit: '2.7.2',
-        okhttp3 : '3.6.0',
+        junit    : '4.13.2',
+        retrofit : '2.7.2',
+        okhttp3  : '3.6.0',
+        dagger   : '2.x',
+        viewmodel: '2.2.0',
 ]
 
 ext {
@@ -27,7 +29,6 @@ ext {
                     navigation        : "androidx.navigation:navigation-fragment:$libVersions.support.navigation",
                     navigationSafeArgs: "androidx.navigation:navigation-safe-args-gradle-plugin:$libVersions.support.navigationSafeArgs",
                     fragment          : "androidx.fragment:fragment:$libVersions.support.fragment",
-
                     test              : [
                             junit   : "androidx.test.ext:junit:$libVersions.support.test.junit",
                             espresso: "androidx.test.espresso:espresso-core:$libVersions.support.test.espresso"
@@ -38,6 +39,14 @@ ext {
             converter: "com.squareup.retrofit2:converter-gson:$libVersions.retrofit",
             okhttp3  : "com.squareup.okhttp3:okhttp:$libVersions.okhttp3",
             logging  : "com.squareup.okhttp3:logging-interceptor:$libVersions.okhttp3",
+            dagger   : [
+                    dagger          : "com.google.dagger:dagger:$libVersions.dagger",
+                    compiler        : "com.google.dagger:dagger-compiler:$libVersions.dagger",
+                    android         : "com.google.dagger:dagger-android:$libVersions.dagger",
+                    androidSupport  : "com.google.dagger:dagger-android-support:$libVersions.dagger",
+                    androidProcessor: "com.google.dagger:dagger-android-processor:$libVersions.dagger",
+            ],
+            viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$libVersions.viewmodel",
     ]
 }
 

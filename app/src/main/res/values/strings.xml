@@ -7,4 +7,7 @@
     <string name="placeholder_make_model">make / model</string>
     <string name="placeholder_year">year</string>
     <string name="placeholder_search">search</string>
+    <string name="make_hint">Make</string>
+    <string name="model_hint">Model</string>
+    <string name="year_hint">Year</string>
 </resources>

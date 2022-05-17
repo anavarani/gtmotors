@@ -44,6 +44,7 @@ dependencies {
     implementation libraries.converter
     implementation libraries.okhttp3
     implementation libraries.logging
+    implementation libraries.viewmodel
 
     testImplementation libraries.junit
     androidTestImplementation libraries.support.test.junit
