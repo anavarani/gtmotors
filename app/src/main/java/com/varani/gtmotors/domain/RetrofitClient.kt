@@ -1,5 +1,6 @@
 package com.varani.gtmotors.domain
 
+import com.varani.gtmotors.api.VehicleApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,4 +25,6 @@ object RetrofitClient {
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    val vehicleApi: VehicleApi = retrofit.create(VehicleApi::class.java)
 }
