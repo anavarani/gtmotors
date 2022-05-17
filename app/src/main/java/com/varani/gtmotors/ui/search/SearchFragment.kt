@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.varani.gtmotors.R
@@ -47,10 +46,5 @@ class SearchFragment : Fragment() {
         searchButton.setOnClickListener {
             findNavController().navigate(R.id.goToSearchResultsFragment)
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).supportActionBar?.title = "Search"
     }
 }

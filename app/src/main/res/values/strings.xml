@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">gtmotors</string>
+    <string name="action_bar_search_fragment_title">Search</string>
+    <string name="action_bar_search_results_fragment_title">Search Results</string>
     <string name="placeholder_filter">Filter</string>
     <string name="placeholder_results">Results</string>
     <string name="placeholder_make_model">make / model</string>
