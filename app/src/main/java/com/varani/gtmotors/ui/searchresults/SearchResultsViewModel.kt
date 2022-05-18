@@ -9,10 +9,11 @@ import com.varani.gtmotors.domain.search.SearchRepository
 import com.varani.gtmotors.domain.search.SearchRequestDomain
 import com.varani.gtmotors.ui.search.SearchViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SearchResultsViewModel : ViewModel() {
-
-    private val repository: SearchRepository = SearchRepository()
+class SearchResultsViewModel @Inject constructor(
+    private val repository: SearchRepository
+) : ViewModel() {
 
     sealed class UiState {
         class Loaded(val result: SearchResultsModel) : UiState()

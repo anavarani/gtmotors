@@ -3,8 +3,11 @@ package com.varani.gtmotors.ui.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class SearchViewModel : ViewModel() {
+@Singleton
+class SearchViewModel @Inject constructor() : ViewModel() {
 
     private val _searchFilterState = MutableLiveData<FilterState>()
     val searchFilterState: LiveData<FilterState> = _searchFilterState

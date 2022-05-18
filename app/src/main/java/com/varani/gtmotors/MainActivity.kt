@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MotorsApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setTitleDynamically()
     }

@@ -3,12 +3,13 @@ package com.varani.gtmotors.domain.search
 import com.varani.gtmotors.api.NetworkResult
 import com.varani.gtmotors.api.VehicleApi
 import com.varani.gtmotors.domain.RetrofitClient
+import javax.inject.Inject
 
-class SearchRepository {
+class SearchRepository @Inject constructor() : Repository {
 
     private var api: VehicleApi = RetrofitClient.vehicleApi
 
-    suspend fun searchVehicles(
+    override suspend fun searchVehicles(
         searchRequestDomain: SearchRequestDomain
     ): NetworkResult<SearchResponseDomain> {
         return try {

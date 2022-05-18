@@ -1,20 +1,23 @@
 package com.varani.gtmotors.ui.searchfilter
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.varani.gtmotors.MotorsApplication
 import com.varani.gtmotors.R
 import com.varani.gtmotors.ui.search.SearchViewModel
 import com.varani.gtmotors.utils.show
+import javax.inject.Inject
 
 class SearchFilterFragment : BottomSheetDialogFragment() {
 
@@ -27,7 +30,10 @@ class SearchFilterFragment : BottomSheetDialogFragment() {
     private lateinit var makeModelLayout: View
     private lateinit var yearLayout: View
 
-    private val searchViewModel: SearchViewModel by activityViewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,8 +45,19 @@ class SearchFilterFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        createViewModel()
         setupViews(view)
         observeLiveData()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as MotorsApplication).appComponent.inject(this)
+    }
+
+    private fun createViewModel() {
+        searchViewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory).get(SearchViewModel::class.java)
     }
 
     private fun setupViews(view: View) {
