@@ -2,6 +2,8 @@ package com.varani.gtmotors.di
 
 import android.content.Context
 import com.varani.gtmotors.MainActivity
+import com.varani.gtmotors.di.module.NetworkModule
+import com.varani.gtmotors.di.module.RepositoryModule
 import com.varani.gtmotors.di.module.ViewModelModule
 import com.varani.gtmotors.ui.search.SearchFragment
 import com.varani.gtmotors.ui.searchfilter.SearchFilterFragment
@@ -13,7 +15,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         ViewModelModule::class,
-        RepositoryModule::class
+        RepositoryModule::class,
+        NetworkModule::class
     ]
 )
 @Singleton
