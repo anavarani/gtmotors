@@ -26,4 +26,8 @@ class SearchViewModel : ViewModel() {
     fun setMakeModel(make: String, model: String) {
         _searchFilterState.value = _searchFilterState.value?.copy(make = make, model = model)
     }
+
+    fun reset() {
+        _searchFilterState.value = FilterState()
+    }
 }

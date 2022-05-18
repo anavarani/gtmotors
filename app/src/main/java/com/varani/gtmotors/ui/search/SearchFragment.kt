@@ -22,6 +22,7 @@ class SearchFragment : Fragment() {
     private lateinit var carYearButton: TextView
     private lateinit var carYearCheck: ImageView
     private lateinit var searchButton: Button
+    private lateinit var clearFilterButton: TextView
 
     private val searchViewModel: SearchViewModel by activityViewModels()
 
@@ -45,6 +46,7 @@ class SearchFragment : Fragment() {
         carYearButton = view.findViewById(R.id.car_year_button)
         carYearCheck = view.findViewById(R.id.car_year_check)
         searchButton = view.findViewById(R.id.search_button)
+        clearFilterButton = view.findViewById(R.id.clear_filter)
 
         carMakeModelButton.setOnClickListener {
             val action = SearchFragmentDirections.goToFilterFragment(Filter.MAKE_MODEL)
@@ -56,6 +58,9 @@ class SearchFragment : Fragment() {
         }
         searchButton.setOnClickListener {
             findNavController().navigate(R.id.goToSearchResultsFragment)
+        }
+        clearFilterButton.setOnClickListener {
+            searchViewModel.reset()
         }
     }
 
