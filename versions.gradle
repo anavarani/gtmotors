@@ -9,10 +9,15 @@ def libVersions = [
                 fragment          : '1.4.1',
                 test              : [
                         junit   : '1.1.3',
-                        espresso: '3.4.0'
+                        espresso: '3.4.0',
                 ]
         ],
-        junit    : '4.13.2',
+        unitTest : [
+                junit      : '4.13.2',
+                fixture    : '2.7.2',
+                mockk      : '1.12.0',
+                coreTesting: '2.1.0',
+        ],
         retrofit : '2.7.2',
         okhttp3  : '3.6.0',
         dagger   : '2.40',
@@ -34,7 +39,12 @@ ext {
                             espresso: "androidx.test.espresso:espresso-core:$libVersions.support.test.espresso"
                     ]
             ],
-            junit    : "junit:junit:$libVersions.junit",
+            unitTest : [
+                    junit      : "junit:junit:$libVersions.unitTest.junit",
+                    fixture    : "com.flextrade.jfixture:jfixture:$libVersions.unitTest.fixture",
+                    mockk      : "io.mockk:mockk:$libVersions.unitTest.mockk",
+                    coreTesting: "androidx.arch.core:core-testing:$libVersions.unitTest.coreTesting"
+            ],
             retrofit : "com.squareup.retrofit2:retrofit:$libVersions.retrofit",
             converter: "com.squareup.retrofit2:converter-gson:$libVersions.retrofit",
             okhttp3  : "com.squareup.okhttp3:okhttp:$libVersions.okhttp3",
