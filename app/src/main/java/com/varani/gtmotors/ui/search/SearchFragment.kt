@@ -1,5 +1,6 @@
 package com.varani.gtmotors.ui.search
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,14 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.varani.gtmotors.MotorsApplication
 import com.varani.gtmotors.R
 import com.varani.gtmotors.ui.searchfilter.Filter
 import com.varani.gtmotors.utils.show
+import javax.inject.Inject
 
 class SearchFragment : Fragment() {
 
@@ -24,7 +27,10 @@ class SearchFragment : Fragment() {
     private lateinit var searchButton: Button
     private lateinit var clearFilterButton: TextView
 
-    private val searchViewModel: SearchViewModel by activityViewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,8 +42,18 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        createViewModel()
         bindViews(view)
         observeLiveData()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as MotorsApplication).appComponent.inject(this)
+    }
+
+    private fun createViewModel() {
+        searchViewModel = ViewModelProvider(this, viewModelFactory).get(SearchViewModel::class.java)
     }
 
     private fun bindViews(view: View) {

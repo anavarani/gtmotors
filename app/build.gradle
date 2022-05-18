@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,6 +46,8 @@ dependencies {
     implementation libraries.okhttp3
     implementation libraries.logging
     implementation libraries.viewmodel
+    implementation libraries.dagger.dagger
+    kapt libraries.dagger.compiler
 
     testImplementation libraries.junit
     androidTestImplementation libraries.support.test.junit
