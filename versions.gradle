@@ -15,7 +15,7 @@ def libVersions = [
         junit    : '4.13.2',
         retrofit : '2.7.2',
         okhttp3  : '3.6.0',
-        dagger   : '2.x',
+        dagger   : '2.40',
         viewmodel: '2.2.0',
 ]
 
