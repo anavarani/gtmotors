@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">gtmotors</string>
+    <string name="app_name">GT Motors</string>
     <string name="action_bar_search_fragment_title">Search</string>
     <string name="action_bar_search_results_fragment_title">Search Results</string>
     <string name="placeholder_filter">Filter</string>
@@ -10,4 +10,9 @@
     <string name="make_hint">Make</string>
     <string name="model_hint">Model</string>
     <string name="year_hint">Year</string>
+    <string name="vehicle_make">Make: %1$s</string>
+    <string name="vehicle_model">Model: %1$s</string>
+    <string name="vehicle_year">Year: %1$s</string>
+    <string name="clear_filters">Clear filters</string>
+    <string name="loading">Loading...</string>
 </resources>

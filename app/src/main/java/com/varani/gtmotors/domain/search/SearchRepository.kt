@@ -10,15 +10,13 @@ class SearchRepository {
 
     suspend fun searchVehicles(
         searchRequestDomain: SearchRequestDomain
-    ): NetworkResult<List<SearchResultsDomain>> {
+    ): NetworkResult<SearchResponseDomain> {
         return try {
             val results = api.searchVehicles(
                 make = searchRequestDomain.make,
                 model = searchRequestDomain.model,
                 year = searchRequestDomain.year,
-            ).searchResults.map {
-                it.toDomain()
-            }
+            ).toDomain()
             NetworkResult.Success(results)
         } catch (throwable: Throwable) {
             NetworkResult.Failure(throwable)
