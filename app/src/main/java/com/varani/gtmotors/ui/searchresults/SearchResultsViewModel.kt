@@ -5,19 +5,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.varani.gtmotors.api.NetworkResult
-import com.varani.gtmotors.domain.search.SearchRepository
+import com.varani.gtmotors.domain.search.Repository
 import com.varani.gtmotors.domain.search.SearchRequestDomain
 import com.varani.gtmotors.ui.search.SearchViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SearchResultsViewModel @Inject constructor(
-    private val repository: SearchRepository
+    private val repository: Repository
 ) : ViewModel() {
 
     sealed class UiState {
         class Loaded(val result: SearchResultsModel) : UiState()
-        class Loading(val show: Boolean = true) : UiState()
+        object Loading : UiState()
         class Error(val message: String) : UiState()
     }
 
@@ -26,24 +26,23 @@ class SearchResultsViewModel @Inject constructor(
         get() = _uiState
 
 
-    fun loadState(state: SearchViewModel.FilterState?) {
+    fun init(state: SearchViewModel.FilterState?) {
         state?.let {
             viewModelScope.launch {
-                _uiState.value = UiState.Loading()
-                repository.searchVehicles(
+                _uiState.value = UiState.Loading
+                val result = repository.searchVehicles(
                     SearchRequestDomain(
                         make = state.make,
                         model = state.model,
                         year = state.year
                     )
-                ).also { response ->
-                    when (response) {
-                        is NetworkResult.Success -> {
-                            _uiState.value = UiState.Loaded(response.value.toModel())
-                        }
-                        is NetworkResult.Failure -> {
-                            _uiState.value = UiState.Error(response.throwable.message.orEmpty())
-                        }
+                )
+                when (result) {
+                    is NetworkResult.Success -> {
+                        _uiState.value = UiState.Loaded(result.value.toModel())
+                    }
+                    is NetworkResult.Failure -> {
+                        _uiState.value = UiState.Error(result.throwable.message.orEmpty())
                     }
                 }
             }

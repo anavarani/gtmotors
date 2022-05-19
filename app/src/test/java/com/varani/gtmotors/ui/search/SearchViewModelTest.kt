@@ -29,7 +29,7 @@ class SearchViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `when year is set, emit new state value`() {
+    fun `when year is set, then emit new state value`() {
         //given
         val year = fixture.create(String::class.java)
 
@@ -44,7 +44,7 @@ class SearchViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `when make is set, emit new state value`() {
+    fun `when make is set, then emit new state value`() {
         //given
         val make = fixture.create(String::class.java)
         val model = fixture.create(String::class.java)
@@ -61,7 +61,7 @@ class SearchViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `when reset, emit new empty state value`() {
+    fun `when reset, then emit new empty state value`() {
         //when
         sut.reset()
 

@@ -53,6 +53,7 @@ dependencies {
     testImplementation libraries.unitTest.fixture
     testImplementation libraries.unitTest.mockk
     testImplementation libraries.unitTest.coreTesting
+    testImplementation libraries.unitTest.coroutines
 
     androidTestImplementation libraries.support.test.junit
     androidTestImplementation libraries.support.test.espresso
