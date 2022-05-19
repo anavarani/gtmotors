@@ -2,6 +2,7 @@ package com.varani.gtmotors.di
 
 import android.content.Context
 import com.varani.gtmotors.MainActivity
+import com.varani.gtmotors.di.module.DispatcherModule
 import com.varani.gtmotors.di.module.NetworkModule
 import com.varani.gtmotors.di.module.RepositoryModule
 import com.varani.gtmotors.di.module.ViewModelModule
@@ -16,7 +17,8 @@ import javax.inject.Singleton
     modules = [
         ViewModelModule::class,
         RepositoryModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        DispatcherModule::class,
     ]
 )
 @Singleton

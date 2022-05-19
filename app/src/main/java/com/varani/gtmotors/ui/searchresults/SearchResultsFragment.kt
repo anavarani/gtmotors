@@ -55,7 +55,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun loadData() {
-        searchResultsViewModel.loadState(searchViewModel.searchFilterState.value)
+        searchResultsViewModel.init(searchViewModel.searchFilterState.value)
     }
 
     private fun createViewModel() {
@@ -80,7 +80,7 @@ class SearchResultsFragment : Fragment() {
             Observer {
                 when (it) {
                     is SearchResultsViewModel.UiState.Loaded -> onLoaded(it.result)
-                    is SearchResultsViewModel.UiState.Loading -> showLoadingDialog(it.show)
+                    is SearchResultsViewModel.UiState.Loading -> showLoadingDialog()
                     is SearchResultsViewModel.UiState.Error -> onError(it.message)
                 }
             }
@@ -97,7 +97,7 @@ class SearchResultsFragment : Fragment() {
         showErrorAndReturn(message)
     }
 
-    private fun showLoadingDialog(show: Boolean) {
+    private fun showLoadingDialog(show: Boolean = true) {
         loadingIndicator.show(show)
     }
 
