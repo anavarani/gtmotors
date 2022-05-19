@@ -25,25 +25,22 @@ class SearchResultsViewModel @Inject constructor(
     val uiState: LiveData<UiState>
         get() = _uiState
 
-
     fun init(state: SearchViewModel.FilterState?) {
-        state?.let {
-            viewModelScope.launch {
-                _uiState.value = UiState.Loading
-                val result = repository.searchVehicles(
-                    SearchRequestDomain(
-                        make = state.make,
-                        model = state.model,
-                        year = state.year
-                    )
+        viewModelScope.launch {
+            _uiState.value = UiState.Loading
+            val result = repository.searchVehicles(
+                SearchRequestDomain(
+                    make = state?.make.orEmpty(),
+                    model = state?.model.orEmpty(),
+                    year = state?.year.orEmpty()
                 )
-                when (result) {
-                    is NetworkResult.Success -> {
-                        _uiState.value = UiState.Loaded(result.value.toModel())
-                    }
-                    is NetworkResult.Failure -> {
-                        _uiState.value = UiState.Error(result.throwable.message.orEmpty())
-                    }
+            )
+            when (result) {
+                is NetworkResult.Success -> {
+                    _uiState.value = UiState.Loaded(result.value.toModel())
+                }
+                is NetworkResult.Failure -> {
+                    _uiState.value = UiState.Error(result.throwable.message.orEmpty())
                 }
             }
         }

@@ -19,13 +19,13 @@ class SearchViewModel @Inject constructor() : ViewModel() {
     )
 
     fun setYear(year: String) {
-        val newState = searchFilterState.value?.copy(year = year)
+        val newState = _searchFilterState.value?.copy(year = year)
             ?: FilterState(year = year)
         _searchFilterState.value = newState
     }
 
     fun setMakeModel(make: String, model: String) {
-        val newState = searchFilterState.value?.copy(make = make, model = model)
+        val newState = _searchFilterState.value?.copy(make = make, model = model)
             ?: FilterState(make = make, model = model)
         _searchFilterState.value = newState
     }
